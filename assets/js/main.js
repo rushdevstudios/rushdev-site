@@ -36,6 +36,42 @@
     document.body.classList.toggle('menu-open', !isOpen);
   });
   nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const targetId = link.getAttribute('href').slice(1);
+      const target = document.getElementById(targetId);
+      if (!target) return;
+      event.preventDefault();
+      closeMenu();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', `#${targetId}`);
+    });
+  });
+
+  const ticker = document.querySelector('.ticker-track');
+  const tickerGroup = ticker?.querySelector('.ticker-group');
+  if (ticker && tickerGroup && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let loopWidth = tickerGroup.getBoundingClientRect().width;
+    const fillTrack = () => {
+      loopWidth = tickerGroup.getBoundingClientRect().width;
+      while (ticker.scrollWidth < window.innerWidth + loopWidth * 2) {
+        ticker.appendChild(tickerGroup.cloneNode(true));
+      }
+    };
+    fillTrack();
+    let position = Math.max(0, window.innerWidth - 220);
+    let previousTime = performance.now();
+    const moveTicker = (time) => {
+      position -= (time - previousTime) * 0.075;
+      previousTime = time;
+      if (position <= -loopWidth) position += loopWidth;
+      ticker.style.transform = `translate3d(${position}px, 0, 0)`;
+      requestAnimationFrame(moveTicker);
+    };
+    requestAnimationFrame(moveTicker);
+    window.addEventListener('resize', fillTrack, { passive: true });
+  }
   document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeMenu(); });
 
   const observer = new IntersectionObserver((entries) => {
@@ -49,3 +85,4 @@
   document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
   document.getElementById('year').textContent = new Date().getFullYear();
 })();
+

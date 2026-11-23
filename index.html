@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090909">
+  <meta name="theme-color" content="#090a0f">
   <meta name="description" content="RushDev Studios, İstanbul merkezli bağımsız oyun stüdyosu. Coco Place ve yeni oyun dünyalarımızı keşfet; fragmanları izle.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.rushdevstudios.com/">
@@ -19,6 +19,7 @@
   <meta name="twitter:title" content="RushDev Studios | Bağımsız Oyun Stüdyosu">
   <meta name="twitter:description" content="İstanbul merkezli bağımsız oyun stüdyosu. Coco Place dünyasını ve fragmanlarını keşfet.">
   <meta name="twitter:image" content="https://www.rushdevstudios.com/assets/img/hero.jpg">
+  <script>document.documentElement.classList.add('js');</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,97 +54,166 @@
   <link rel="icon" href="/assets/img/favicon.png" type="image/png" sizes="512x512">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Onest:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <div class="site-intro" aria-hidden="true">
+    <div class="intro-mark"><img src="assets/img/logo.png" alt=""><span>RUSHDEV<span class="red-dot">.</span></span></div>
+    <div class="intro-track"><span></span></div>
+    <p>INDEPENDENT WORLDS · ISTANBUL</p>
+  </div>
   <div class="page-grain" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress"></span></div>
+  <div class="custom-cursor" id="custom-cursor" aria-hidden="true"><span></span></div>
+
   <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="RushDev Studios ana sayfa">
-      <img src="assets/img/logo.png" alt="" width="38" height="38">
-      <span>RUSHDEV<span class="brand-dot">.</span></span>
-    </a>
-    <button class="menu-toggle" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="site-nav"><span></span><span></span></button>
-    <nav class="site-nav" id="site-nav" aria-label="Ana menü">
-      <a href="#games" data-tr="Oyunlar" data-en="Games">Oyunlar</a>
-      <a href="#studio" data-tr="Stüdyo" data-en="Studio">Stüdyo</a>
-      <a href="#updates" data-tr="Günlükler" data-en="Updates">Günlükler</a>
-      <a class="nav-contact" href="#contact" data-tr="İletişim ↗" data-en="Contact ↗">İletişim ↗</a>
-      <button class="language-toggle" type="button" aria-label="Switch language">EN</button>
-    </nav>
+    <div class="header-shell">
+      <a class="brand" href="#top" aria-label="RushDev Studios ana sayfa">
+        <img src="assets/img/logo.png" alt="" width="34" height="34">
+        <span>RUSHDEV<span class="brand-dot">.</span></span>
+      </a>
+      <nav class="site-nav" id="site-nav" aria-label="Ana menü">
+        <a href="#games" data-tr="Oyunlar" data-en="Games">Oyunlar</a>
+        <a href="#trailers" data-tr="Fragmanlar" data-en="Trailers">Fragmanlar</a>
+        <a href="#studio" data-tr="Stüdyo" data-en="Studio">Stüdyo</a>
+        <a href="#updates" data-tr="Kanallar" data-en="Channels">Kanallar</a>
+      </nav>
+      <div class="header-actions">
+        <div class="language-switch" role="group" aria-label="Dil seçimi">
+          <button type="button" data-language="tr" aria-pressed="true">TR</button>
+          <button type="button" data-language="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="header-contact" href="#contact"><span data-tr="İletişim" data-en="Contact">İletişim</span><span aria-hidden="true">↗</span></a>
+        <button class="menu-toggle" type="button" aria-label="Menüyü aç" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+      </div>
+    </div>
   </header>
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav aria-label="Mobil menü">
+      <a href="#games"><span data-tr="Oyunlar" data-en="Games">Oyunlar</span><b>01</b></a>
+      <a href="#trailers"><span data-tr="Fragmanlar" data-en="Trailers">Fragmanlar</span><b>02</b></a>
+      <a href="#studio"><span data-tr="Stüdyo" data-en="Studio">Stüdyo</span><b>03</b></a>
+      <a href="#updates"><span data-tr="Kanallar" data-en="Channels">Kanallar</span><b>04</b></a>
+      <a href="#contact"><span data-tr="İletişim" data-en="Contact">İletişim</span><b>05</b></a>
+    </nav>
+    <a class="mobile-discord" href="https://discord.gg/9ktUgC3djh" target="_blank" rel="noreferrer">Discord ↗</a>
+  </div>
 
   <main>
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-backdrop" role="img" aria-label="Coco Place oyunundan karanlık, yağmurlu bir gece sahnesi"></div>
-      <div class="hero-shade"></div>
+      <div class="hero-backdrop" aria-hidden="true"></div>
+      <div class="hero-light" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-vignette" aria-hidden="true"></div>
       <div class="hero-inner">
-        <div class="eyebrow"><span class="pulse-dot"></span><span data-tr="COCO PLACE · DEMO ERİŞİME KAPALI" data-en="COCO PLACE · DEMO ACCESS CLOSED">COCO PLACE · DEMO ERİŞİME KAPALI</span></div>
-        <h1 id="hero-title"><span data-tr="Bu binada" data-en="In this building">Bu binada</span><br><em data-tr="gece bitmiyor." data-en="the night never ends.">gece bitmiyor.</em></h1>
-        <p class="hero-copy" data-tr="Demo şu anda erişime kapalı. Fragmanla Coco Place’in karanlık dünyasına göz at." data-en="The demo is currently unavailable. Get a first look at the dark world of Coco Place with the trailer.">Demo şu anda erişime kapalı. Fragmanla Coco Place’in karanlık dünyasına göz at.</p>
-        <div class="hero-actions">
-          <a class="button button-light" href="https://www.youtube.com/watch?v=1EEIcyKICyY" target="_blank" rel="noreferrer"><span data-tr="2. fragmanı izle" data-en="Watch trailer 02">2. fragmanı izle</span><span aria-hidden="true">↗</span></a>
-          <a class="text-link" href="#trailers"><span data-tr="İki fragmanı keşfet" data-en="Explore both trailers">İki fragmanı keşfet</span><span aria-hidden="true">↓</span></a>
+        <div class="eyebrow"><span class="pulse-dot"></span><span data-tr="İSTANBUL MERKEZLİ BAĞIMSIZ OYUN STÜDYOSU" data-en="INDEPENDENT GAME STUDIO · ISTANBUL">İSTANBUL MERKEZLİ BAĞIMSIZ OYUN STÜDYOSU</span></div>
+        <h1 id="hero-title"><span data-tr="Kaybolmaya" data-en="Worlds worth">Kaybolmaya</span><br><em data-tr="değer dünyalar." data-en="getting lost in.">değer dünyalar.</em></h1>
+        <div class="hero-bottom">
+          <div class="hero-story">
+            <p data-tr="Bağımsız oyunlar. Kendi kurallarımızla. Coco Place’in karanlık dünyasına adım at." data-en="Independent games. Our own rules. Step into the dark world of Coco Place.">Bağımsız oyunlar. Kendi kurallarımızla. Coco Place’in karanlık dünyasına adım at.</p>
+            <div class="hero-actions">
+              <a class="button button-primary magnetic" href="https://www.youtube.com/watch?v=1EEIcyKICyY" target="_blank" rel="noreferrer"><span data-tr="2. fragmanı izle" data-en="Watch trailer 02">2. fragmanı izle</span><span aria-hidden="true">↗</span></a>
+              <a class="button button-quiet" href="#trailers"><span data-tr="Fragmanları keşfet" data-en="Explore trailers">Fragmanları keşfet</span><span aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+          <div class="hero-status"><span class="status-ring"><span></span></span><div><small data-tr="ŞİMDİ ODAKTA" data-en="NOW IN FOCUS">ŞİMDİ ODAKTA</small><strong>COCO PLACE</strong><span data-tr="Atmosferik gerilim · Demo kapalı" data-en="Atmospheric thriller · Demo unavailable">Atmosferik gerilim · Demo kapalı</span></div></div>
         </div>
       </div>
-      <div class="hero-foot"><span>COCO PLACE</span><span class="hero-foot-line"></span><span data-tr="ATMOSFERİK KORKU · DEMO ERİŞİME KAPALI" data-en="ATMOSPHERIC HORROR · DEMO ACCESS CLOSED">ATMOSFERİK KORKU · DEMO ERİŞİME KAPALI</span></div>
-      <a class="scroll-cue" href="#games" aria-label="Oyunlar bölümüne kaydır">↓</a>
+      <div class="hero-foot"><span>R / 001</span><span class="hero-foot-line"></span><span data-tr="KARANLIĞA BİR ADIM DAHA" data-en="ONE STEP FURTHER INTO THE DARK">KARANLIĞA BİR ADIM DAHA</span></div>
+      <a class="scroll-cue" href="#marquee" aria-label="Aşağı kaydır"><span></span></a>
     </section>
 
-    <div class="ticker" aria-label="RushDev Studios"><div class="ticker-track" aria-hidden="true"><div class="ticker-group"><span>RUSHDEV STUDIOS</span><i>✳</i><span>WORLDS WORTH GETTING LOST IN</span><i>✳</i><span>RUSHDEV STUDIOS</span><i>✳</i><span>WORLDS WORTH GETTING LOST IN</span><i>✳</i></div></div></div>
+    <section class="marquee-section" id="marquee" aria-label="RushDev Studios">
+      <div class="marquee-row marquee-row-one" aria-hidden="true"><div class="marquee-track"><span>RUSHDEV STUDIOS</span><i>✦</i><span class="outline-text" data-tr="KAYBOLMAYA DEĞER DÜNYALAR" data-en="WORLDS WORTH GETTING LOST IN">KAYBOLMAYA DEĞER DÜNYALAR</span><i>✦</i><span>COCO PLACE</span><i>✦</i><span>RUSHDEV STUDIOS</span><i>✦</i><span class="outline-text" data-tr="KAYBOLMAYA DEĞER DÜNYALAR" data-en="WORLDS WORTH GETTING LOST IN">KAYBOLMAYA DEĞER DÜNYALAR</span><i>✦</i><span>COCO PLACE</span><i>✦</i></div></div>
+      <div class="marquee-row marquee-row-two" aria-hidden="true"><div class="marquee-track"><span class="outline-text">INDEPENDENT · ISTANBUL</span><i>✦</i><span>LIGHTS DOWN</span><i>✦</i><span class="outline-text">SOUND UP</span><i>✦</i><span class="outline-text">INDEPENDENT · ISTANBUL</span><i>✦</i><span>LIGHTS DOWN</span><i>✦</i><span class="outline-text">SOUND UP</span><i>✦</i></div></div>
+    </section>
 
     <section class="section games-section" id="games">
       <div class="section-heading reveal">
-        <div><p class="kicker"><span>01</span> / <span data-tr="PORTFÖY" data-en="PORTFOLIO">PORTFÖY</span></p><h2 data-tr="Oynanacak çok şey var." data-en="There’s more to play.">Oynanacak çok şey var.</h2></div>
-        <p class="heading-note" data-tr="Her proje yeni bir dünya. İçeri adım at." data-en="Every project is a new world. Step inside.">Her proje yeni bir dünya. İçeri adım at.</p>
+        <div><p class="kicker"><span>01</span> / <span data-tr="OYUNLAR" data-en="GAMES">OYUNLAR</span></p><h2 data-tr="Yeni dünyalara<br>adım at." data-en="Step into<br>new worlds.">Yeni dünyalara<br>adım at.</h2></div>
+        <p class="heading-note" data-tr="Her proje yeni bir his. Her dünya keşfedilmeyi bekliyor." data-en="Every project is a new feeling. Every world is waiting to be explored.">Her proje yeni bir his. Her dünya keşfedilmeyi bekliyor.</p>
       </div>
       <div class="games-grid">
-        <article class="game-card game-card-feature reveal">
-          <a class="game-image" href="https://rushdevstudios.itch.io/" target="_blank" rel="noreferrer" aria-label="Coco Place hakkında daha fazla bilgi">
-            <img src="assets/img/coco.jpg" alt="Coco Place oyunundan atmosferik bir sahne" loading="lazy">
-            <span class="image-index">GAME  /  001</span><span class="image-arrow">↗</span>
+        <article class="game-card game-card-feature reveal tilt-card spotlight">
+          <a class="game-image" href="https://rushdevstudios.itch.io/" target="_blank" rel="noreferrer" aria-label="Coco Place oyun sayfasını aç">
+            <img src="assets/img/coco.jpg" alt="Coco Place oyunundan terk edilmiş karanlık bir iç mekân" fetchpriority="high">
+            <span class="image-shade"></span><span class="image-index">GAME / 001</span>
+            <span class="game-pill"><i></i><span data-tr="DEMO ERİŞİME KAPALI" data-en="DEMO UNAVAILABLE">DEMO ERİŞİME KAPALI</span></span>
+            <span class="image-arrow">↗</span>
+            <span class="game-image-title"><small data-tr="ATMOSFERİK GERİLİM" data-en="ATMOSPHERIC THRILLER">ATMOSFERİK GERİLİM</small><strong>Coco Place</strong></span>
           </a>
-          <div class="game-info"><div><p class="game-type" data-tr="DEMO ERİŞİME KAPALI · ATMOSFERİK GERİLİM" data-en="DEMO ACCESS CLOSED · ATMOSPHERIC THRILLER">DEMO ERİŞİME KAPALI · ATMOSFERİK GERİLİM</p><h3>Coco Place</h3><p class="game-description" data-tr="Terk edilmiş bir mekân, yarım kalmış bir hikâye ve karanlıkta saklanan cevaplar. Coco Place'in dünyasına adım at." data-en="An abandoned place, an unfinished story and answers hiding in the dark. Step into the world of Coco Place.">Terk edilmiş bir mekân, yarım kalmış bir hikâye ve karanlıkta saklanan cevaplar. Coco Place'in dünyasına adım at.</p></div><a class="round-link" href="https://rushdevstudios.itch.io/" target="_blank" rel="noreferrer" aria-label="Coco Place sayfasını aç">↗</a></div>
+          <div class="game-info"><p data-tr="Terk edilmiş bir mekân, yarım kalmış bir hikâye ve karanlıkta saklanan cevaplar. Coco Place’in dünyasına adım at." data-en="An abandoned place, an unfinished story and answers hiding in the dark. Step into the world of Coco Place.">Terk edilmiş bir mekân, yarım kalmış bir hikâye ve karanlıkta saklanan cevaplar. Coco Place’in dünyasına adım at.</p><a class="round-link" href="https://rushdevstudios.itch.io/" target="_blank" rel="noreferrer" aria-label="Coco Place sayfası">↗</a></div>
         </article>
-        <article class="game-card reveal">
-          <a class="game-image" href="https://www.youtube.com/@RushdevStudios" target="_blank" rel="noreferrer" aria-label="Yeni korku projesi hakkında bilgi">
-            <img src="assets/img/korku.jpg" alt="RushDev Studios'un korku projesinden bir sahne" loading="lazy">
-            <span class="image-index">GAME  /  002</span><span class="image-arrow">↗</span>
+        <article class="game-card game-card-next reveal tilt-card spotlight">
+          <a class="game-image" href="https://www.youtube.com/@RushdevStudios" target="_blank" rel="noreferrer" aria-label="Yeni proje gelişmelerini takip et">
+            <img src="assets/img/korku.jpg" alt="RushDev Studios'un yeni korku projesinden bir konsept sahne" loading="lazy">
+            <span class="image-shade"></span><span class="image-index">GAME / 002</span><span class="game-pill game-pill-blue"><i></i><span data-tr="ÖN ÜRETİM" data-en="PRE-PRODUCTION">ÖN ÜRETİM</span></span>
+            <span class="image-arrow">↗</span>
+            <span class="game-image-title"><small data-tr="YENİ BİR DÜNYA YAKLAŞIYOR" data-en="A NEW WORLD IS COMING">YENİ BİR DÜNYA YAKLAŞIYOR</small><strong data-tr="Kod adı: gizli" data-en="Codename: classified">Kod adı: gizli</strong></span>
           </a>
-          <div class="game-info"><div><p class="game-type" data-tr="ÖN ÜRETİM" data-en="PRE-PRODUCTION">ÖN ÜRETİM</p><h3 data-tr="Yeni bir şey yaklaşıyor" data-en="Something is coming">Yeni bir şey yaklaşıyor</h3><p class="game-description" data-tr="Keşif, gerilim ve hayatta kalma üzerine kurulu yeni bir dünya üzerinde çalışıyoruz." data-en="We’re working on a new world built around exploration, tension and survival.">Keşif, gerilim ve hayatta kalma üzerine kurulu yeni bir dünya üzerinde çalışıyoruz.</p></div><a class="round-link" href="https://www.youtube.com/@RushdevStudios" target="_blank" rel="noreferrer" aria-label="RushDev Studios YouTube kanalını aç">↗</a></div>
+          <div class="game-info"><p data-tr="Keşif, gerilim ve hayatta kalma üzerine kurulu yeni bir dünya üzerinde çalışıyoruz." data-en="We’re building a new world around exploration, tension and survival.">Keşif, gerilim ve hayatta kalma üzerine kurulu yeni bir dünya üzerinde çalışıyoruz.</p><a class="round-link" href="https://www.youtube.com/@RushdevStudios" target="_blank" rel="noreferrer" aria-label="YouTube kanalını aç">↗</a></div>
         </article>
       </div>
     </section>
 
     <section class="trailer-section" id="trailers">
       <div class="trailer-heading reveal">
-        <p class="kicker"><span>02</span> / <span data-tr="COCO PLACE FRAGMANLARI" data-en="COCO PLACE TRAILERS">COCO PLACE FRAGMANLARI</span></p>
-        <h2 data-tr="İki fragman.<br>Tek bir karanlık." data-en="Two trailers.<br>One dark world.">İki fragman.<br>Tek bir karanlık.</h2>
-        <p data-tr="Coco Place dünyasına iki farklı bakış. Fragmanları buradan izleyebilirsin." data-en="Two different looks into the world of Coco Place. Watch both trailers here.">Coco Place dünyasına iki farklı bakış. Fragmanları buradan izleyebilirsin.</p>
+        <div><p class="kicker"><span>02</span> / <span data-tr="COCO PLACE FRAGMANLARI" data-en="COCO PLACE TRAILERS">COCO PLACE FRAGMANLARI</span></p><h2 data-tr="Işıkları kapat.<br><em>Sesi aç.</em>" data-en="Lights off.<br><em>Sound up.</em>">Işıkları kapat.<br><em>Sesi aç.</em></h2></div>
+        <p data-tr="Coco Place’in karanlık dünyasına iki farklı bakış. Fragmanı seç, sinemaya geç." data-en="Two looks into the dark world of Coco Place. Pick a trailer and step into the cinema.">Coco Place’in karanlık dünyasına iki farklı bakış. Fragmanı seç, sinemaya geç.</p>
       </div>
-      <div class="trailers-grid">
-        <article class="trailer-card reveal">
-          <div class="trailer-video"><iframe src="https://www.youtube-nocookie.com/embed/N6ESr_y0V88" title="Coco Place — 1. Fragman" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-          <div class="trailer-info"><div><p class="trailer-number" data-tr="FRAGMAN 01 · İLK BAKIŞ" data-en="TRAILER 01 · FIRST LOOK">FRAGMAN 01 · İLK BAKIŞ</p><h3 data-tr="İlk fragman" data-en="First trailer">İlk fragman</h3></div><a class="round-link" href="https://www.youtube.com/watch?v=N6ESr_y0V88" target="_blank" rel="noreferrer" aria-label="1. fragmanı YouTube'da aç">↗</a></div>
-        </article>
-        <article class="trailer-card trailer-card-new reveal">
-          <div class="trailer-video"><iframe src="https://www.youtube-nocookie.com/embed/1EEIcyKICyY" title="Coco Place — 2. Fragman" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><span class="trailer-new-badge" data-tr="YENİ FRAGMAN" data-en="NEW TRAILER">YENİ FRAGMAN</span></div>
-          <div class="trailer-info"><div><p class="trailer-number" data-tr="FRAGMAN 02 · YAYINDA" data-en="TRAILER 02 · OUT NOW">FRAGMAN 02 · YAYINDA</p><h3 data-tr="İkinci fragman" data-en="Second trailer">İkinci fragman</h3></div><a class="round-link" href="https://www.youtube.com/watch?v=1EEIcyKICyY" target="_blank" rel="noreferrer" aria-label="2. fragmanı YouTube'da aç">↗</a></div>
-        </article>
+      <div class="trailer-showcase reveal">
+        <div class="trailer-screen" id="trailer-screen" data-video="1EEIcyKICyY">
+          <button class="video-cover" type="button" id="video-cover" aria-label="Coco Place ikinci fragmanını oynat">
+            <img id="trailer-poster" src="https://i.ytimg.com/vi/1EEIcyKICyY/maxresdefault.jpg" alt="Coco Place ikinci fragmanının video kapağı" loading="lazy">
+            <span class="video-vignette"></span><span class="play-button"><span></span></span>
+            <span class="video-caption"><small id="trailer-label">FRAGMAN 02 · YENİ · YAYINDA</small><strong id="trailer-title">İkinci fragman</strong></span>
+          </button>
+        </div>
+        <div class="trailer-picker" role="group" aria-label="Fragman seç">
+          <button class="trailer-option" type="button" data-trailer="N6ESr_y0V88" data-title-tr="İlk fragman" data-title-en="First trailer" data-label-tr="FRAGMAN 01 · İLK BAKIŞ" data-label-en="TRAILER 01 · FIRST LOOK" aria-pressed="false">
+            <span class="trailer-thumb"><img src="https://i.ytimg.com/vi/N6ESr_y0V88/mqdefault.jpg" alt="" loading="lazy"><i>01</i></span><span class="trailer-option-copy"><small data-tr="İLK BAKIŞ" data-en="FIRST LOOK">İLK BAKIŞ</small><strong data-tr="İlk fragman" data-en="First trailer">İlk fragman</strong></span><span class="option-arrow">↗</span>
+          </button>
+          <button class="trailer-option is-active" type="button" data-trailer="1EEIcyKICyY" data-title-tr="İkinci fragman" data-title-en="Second trailer" data-label-tr="FRAGMAN 02 · YENİ · YAYINDA" data-label-en="TRAILER 02 · NEW · OUT NOW" aria-pressed="true">
+            <span class="trailer-thumb"><img src="https://i.ytimg.com/vi/1EEIcyKICyY/mqdefault.jpg" alt="" loading="lazy"><i>02</i></span><span class="trailer-option-copy"><small data-tr="YENİ · YAYINDA" data-en="NEW · OUT NOW">YENİ · YAYINDA</small><strong data-tr="İkinci fragman" data-en="Second trailer">İkinci fragman</strong></span><span class="option-arrow">↗</span>
+          </button>
+        </div>
       </div>
     </section>
 
     <section class="studio-section" id="studio">
-      <div class="studio-art reveal"><img src="assets/img/hero.jpg" alt="Coco Place'in karanlık dünyası" loading="lazy"><span class="studio-stamp">RD<br><small>EST. INDIE</small></span></div>
-      <div class="studio-copy reveal"><p class="kicker"><span>03</span> / <span data-tr="STÜDYO" data-en="THE STUDIO">STÜDYO</span></p><h2 data-tr="Küçük ekip.<br><em>Büyük dünyalar.</em>" data-en="Small team.<br><em>Big worlds.</em>">Küçük ekip.<br><em>Büyük dünyalar.</em></h2><p data-tr="RushDev Studios, İstanbul'dan bağımsız oyunlar geliştiren küçük ve tutkulu bir ekip. Kendi dünyalarımızı kuruyor, her ayrıntıyı oyuncuya hissettiren deneyimler tasarlıyoruz." data-en="RushDev Studios is a small, passionate team making independent games from Istanbul. We build our own worlds and craft experiences that make every detail felt.">RushDev Studios, İstanbul'dan bağımsız oyunlar geliştiren küçük ve tutkulu bir ekip. Kendi dünyalarımızı kuruyor, her ayrıntıyı oyuncuya hissettiren deneyimler tasarlıyoruz.</p><a class="text-link" href="#contact"><span data-tr="Bizimle tanış" data-en="Get to know us">Bizimle tanış</span><span aria-hidden="true">↘</span></a></div>
+      <div class="studio-heading reveal"><p class="kicker"><span>03</span> / <span data-tr="STÜDYO" data-en="THE STUDIO">STÜDYO</span></p><h2 data-tr="Az kişi.<br><em>Kendi dünyalarımız.</em>" data-en="Small team.<br><em>Worlds of our own.</em>">Az kişi.<br><em>Kendi dünyalarımız.</em></h2><p data-tr="RushDev Studios, İstanbul’dan bağımsız oyunlar geliştiren küçük ve tutkulu bir ekip. Kendi dünyalarımızı kuruyor, her ayrıntıyı oyuncuya hissettiren deneyimler tasarlıyoruz." data-en="RushDev Studios is a small, passionate team making independent games from Istanbul. We build our own worlds and craft experiences that make every detail felt.">RushDev Studios, İstanbul’dan bağımsız oyunlar geliştiren küçük ve tutkulu bir ekip. Kendi dünyalarımızı kuruyor, her ayrıntıyı oyuncuya hissettiren deneyimler tasarlıyoruz.</p></div>
+      <div class="studio-grid">
+        <div class="studio-art reveal tilt-card"><img src="assets/img/hero.jpg" alt="Coco Place dünyasından karanlık, neonlu bir gece sahnesi" loading="lazy"><span class="studio-art-shade"></span><div class="studio-signature"><div class="signature-ring"><img src="assets/img/logo.png" alt="" width="42" height="42"></div><div><strong>RUSHDEV STUDIOS</strong><small>INDEPENDENT · ISTANBUL</small></div></div><span class="studio-stamp">RD<small>GAME STUDIO</small></span></div>
+        <div class="studio-pillars">
+          <article class="pillar-card reveal spotlight"><div><small>01</small><h3 data-tr="Atmosfer" data-en="Atmosphere">Atmosfer</h3></div><p data-tr="Işık, ses ve sessizlik — her sahne bir his taşır." data-en="Light, sound and silence — every scene carries a feeling.">Işık, ses ve sessizlik — her sahne bir his taşır.</p></article>
+          <article class="pillar-card reveal spotlight"><div><small>02</small><h3 data-tr="Hikâye" data-en="Story">Hikâye</h3></div><p data-tr="Kendi dünyalarımızı sıfırdan kuruyoruz." data-en="We build our own worlds from the ground up.">Kendi dünyalarımızı sıfırdan kuruyoruz.</p></article>
+          <article class="pillar-card reveal spotlight"><div><small>03</small><h3 data-tr="Ayrıntı" data-en="Detail">Ayrıntı</h3></div><p data-tr="Oyuncunun hissettiği her küçük şey önemli." data-en="Every small thing the player feels matters.">Oyuncunun hissettiği her küçük şey önemli.</p></article>
+        </div>
+      </div>
     </section>
 
-    <section class="updates-section" id="updates"><div class="updates-inner reveal"><div><p class="kicker"><span>04</span> / <span data-tr="GELİŞTİRME GÜNLÜĞÜ" data-en="DEVELOPMENT LOG">GELİŞTİRME GÜNLÜĞÜ</span></p><h2 data-tr="Bir sonraki<br>güncelleme yolda." data-en="The next update<br>is on its way.">Bir sonraki<br>güncelleme yolda.</h2></div><div class="updates-note"><p data-tr="Oyunlardan, geliştirme sürecinden ve stüdyodan yeni haberleri sosyal kanallarımızda paylaşıyoruz." data-en="We share news from our games, development process and studio on our social channels.">Oyunlardan, geliştirme sürecinden ve stüdyodan yeni haberleri sosyal kanallarımızda paylaşıyoruz.</p><a class="button button-outline" href="#socials"><span data-tr="Sosyal hesaplarımız" data-en="Our socials">Sosyal hesaplarımız</span><span aria-hidden="true">↘</span></a></div></div></section>
+    <section class="updates-section" id="updates">
+      <div class="updates-heading reveal"><div><p class="kicker"><span>04</span> / <span data-tr="KANALLAR" data-en="CHANNELS">KANALLAR</span></p><h2 data-tr="Bir sonraki güncelleme<br><em>yolda.</em>" data-en="The next update<br><em>is on its way.</em>">Bir sonraki güncelleme<br><em>yolda.</em></h2></div><p data-tr="Oyunlardan, geliştirme sürecinden ve stüdyodan yeni haberleri sosyal kanallarımızda paylaşıyoruz." data-en="We share news from our games, development process and studio on our social channels.">Oyunlardan, geliştirme sürecinden ve stüdyodan yeni haberleri sosyal kanallarımızda paylaşıyoruz.</p></div>
+      <div class="channel-grid">
+        <a class="channel-card channel-youtube reveal spotlight" href="https://www.youtube.com/@RushdevStudios" target="_blank" rel="noreferrer"><span class="channel-number">01 / VIDEO</span><span class="channel-arrow">↗</span><span class="channel-main">YouTube</span><span class="channel-note" data-tr="Fragmanlar ve videolar" data-en="Trailers and videos">Fragmanlar ve videolar</span><span class="channel-handle">@RUSHDEVSTUDIOS</span></a>
+        <a class="channel-card reveal spotlight" href="https://discord.gg/9ktUgC3djh" target="_blank" rel="noreferrer"><span class="channel-number">02 / COMMUNITY</span><span class="channel-arrow">↗</span><span class="channel-main">Discord</span><span class="channel-note" data-tr="Topluluğa katıl, sohbet et" data-en="Join the community">Topluluğa katıl, sohbet et</span><span class="channel-handle">RUSHDEV</span></a>
+        <a class="channel-card reveal spotlight" href="https://rushdevstudios.itch.io/" target="_blank" rel="noreferrer"><span class="channel-number">03 / GAMES</span><span class="channel-arrow">↗</span><span class="channel-main">itch.io</span><span class="channel-note" data-tr="Oyunlarımız" data-en="Our games">Oyunlarımız</span><span class="channel-handle">RUSHDEVSTUDIOS</span></a>
+        <a class="channel-card reveal spotlight" href="https://x.com/RushDevStudios" target="_blank" rel="noreferrer"><span class="channel-number">04 / UPDATES</span><span class="channel-arrow">↗</span><span class="channel-main">X</span><span class="channel-note" data-tr="Kısa haberler" data-en="Quick updates">Kısa haberler</span><span class="channel-handle">@RUSHDEVSTUDIOS</span></a>
+        <a class="channel-card reveal spotlight" href="https://www.instagram.com/rushdevstudios/" target="_blank" rel="noreferrer"><span class="channel-number">05 / STUDIO LIFE</span><span class="channel-arrow">↗</span><span class="channel-main">Instagram</span><span class="channel-note" data-tr="Kamera arkası" data-en="Behind the scenes">Kamera arkası</span><span class="channel-handle">@RUSHDEVSTUDIOS</span></a>
+      </div>
+    </section>
 
-    <section class="contact-section" id="contact"><div class="contact-orb" aria-hidden="true"></div><div class="contact-inner reveal"><p class="kicker"><span>05</span> / <span data-tr="İLETİŞİM" data-en="GET IN TOUCH">İLETİŞİM</span></p><h2 data-tr="Birlikte bir şey<br><em>inşa edelim.</em>" data-en="Let’s build<br><em>something together.</em>">Birlikte bir şey<br><em>inşa edelim.</em></h2><a class="button button-light" href="https://discord.gg/9ktUgC3djh" target="_blank" rel="noreferrer"><span data-tr="Discord üzerinden bize yaz" data-en="Message us on Discord">Discord üzerinden bize yaz</span><span aria-hidden="true">↗</span></a><p class="contact-email">contact@rushdevstudios.com</p></div></section>
+    <section class="contact-section" id="contact">
+      <div class="contact-orb" aria-hidden="true"></div><div class="contact-grid" aria-hidden="true"></div>
+      <div class="contact-inner reveal"><p class="kicker"><span>05</span> / <span data-tr="İLETİŞİM" data-en="GET IN TOUCH">İLETİŞİM</span></p><h2 data-tr="Birlikte bir şey<br><em>inşa edelim.</em>" data-en="Let’s build<br><em>something together.</em>">Birlikte bir şey<br><em>inşa edelim.</em></h2><p class="contact-copy" data-tr="İş birliği, basın ya da sadece merhaba demek için — bize ulaş." data-en="For collaborations, press, or just to say hello — get in touch.">İş birliği, basın ya da sadece merhaba demek için — bize ulaş.</p><div class="contact-actions"><a class="button button-primary magnetic" href="https://discord.gg/9ktUgC3djh" target="_blank" rel="noreferrer"><span data-tr="Discord’dan bize yaz" data-en="Message us on Discord">Discord’dan bize yaz</span><span>↗</span></a><a class="button button-quiet" href="mailto:contact@rushdev.com">contact@rushdev.com <span>↗</span></a></div></div>
+    </section>
   </main>
 
-  <footer class="site-footer"><a class="brand footer-brand" href="#top"><img src="assets/img/logo.png" alt="" width="32" height="32"><span>RUSHDEV<span class="brand-dot">.</span></span></a><p data-tr="Bağımsız oyunlar. Kendi kurallarımızla." data-en="Independent games. Our own rules.">Bağımsız oyunlar. Kendi kurallarımızla.</p><div class="social-links" id="socials"><a href="https://x.com/RushDevStudios" target="_blank" rel="noreferrer">X ↗</a><a href="https://www.instagram.com/rushdevstudios/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.youtube.com/@RushdevStudios" target="_blank" rel="noreferrer">YouTube ↗</a><a href="https://discord.gg/9ktUgC3djh" target="_blank" rel="noreferrer">Discord ↗</a><a href="https://rushdevstudios.itch.io/" target="_blank" rel="noreferrer">itch.io ↗</a></div><small>© <span id="year"></span> RUSHDEV STUDIOS</small></footer>
+  <footer class="site-footer">
+    <div class="footer-top"><div class="footer-brand-block"><a class="brand" href="#top"><img src="assets/img/logo.png" alt="" width="34" height="34"><span>RUSHDEV<span class="brand-dot">.</span></span></a><p data-tr="Bağımsız oyunlar. Kendi kurallarımızla." data-en="Independent games. Our own rules.">Bağımsız oyunlar. Kendi kurallarımızla.</p></div><nav class="footer-links" aria-label="Sosyal medya"><a href="https://x.com/RushDevStudios" target="_blank" rel="noreferrer">X ↗</a><a href="https://www.instagram.com/rushdevstudios/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.youtube.com/@RushdevStudios" target="_blank" rel="noreferrer">YouTube ↗</a><a href="https://discord.gg/9ktUgC3djh" target="_blank" rel="noreferrer">Discord ↗</a><a href="https://rushdevstudios.itch.io/" target="_blank" rel="noreferrer">itch.io ↗</a></nav></div>
+    <div class="footer-bottom"><span>© <span id="year"></span> RUSHDEV STUDIOS</span><span data-tr="İSTANBUL · TÜM HAKLARI SAKLIDIR" data-en="ISTANBUL · ALL RIGHTS RESERVED">İSTANBUL · TÜM HAKLARI SAKLIDIR</span></div><p class="footer-watermark" aria-hidden="true">RUSHDEV</p>
+  </footer>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>

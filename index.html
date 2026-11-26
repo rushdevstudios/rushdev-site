@@ -19,7 +19,6 @@
   <meta name="twitter:title" content="RushDev Studios | Bağımsız Oyun Stüdyosu">
   <meta name="twitter:description" content="İstanbul merkezli bağımsız oyun stüdyosu. Coco Place dünyasını ve fragmanlarını keşfet.">
   <meta name="twitter:image" content="https://www.rushdevstudios.com/assets/img/hero.jpg">
-  <script>document.documentElement.classList.add('js');</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -58,16 +57,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <div class="site-intro" aria-hidden="true">
-    <div class="intro-mark"><img src="assets/img/logo.png" alt=""><span>RUSHDEV<span class="red-dot">.</span></span></div>
-    <div class="intro-track"><span></span></div>
-    <p>INDEPENDENT WORLDS · ISTANBUL</p>
-  </div>
-  <div class="page-grain" aria-hidden="true"></div>
-  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress"></span></div>
-  <div class="custom-cursor" id="custom-cursor" aria-hidden="true"><span></span></div>
-
-  <header class="site-header" id="top">
+  <header class="site-header" id="site-header">
     <div class="header-shell">
       <a class="brand" href="#top" aria-label="RushDev Studios ana sayfa">
         <img src="assets/img/logo.png" alt="" width="34" height="34">
@@ -101,27 +91,22 @@
   </div>
 
   <main>
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-backdrop" aria-hidden="true"></div>
-      <div class="hero-light" aria-hidden="true"></div>
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-vignette" aria-hidden="true"></div>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-backdrop" aria-hidden="true">
+        <img class="hero-poster" src="assets/img/hero.jpg" alt="">
+        <iframe class="hero-video" src="https://www.youtube-nocookie.com/embed/1EEIcyKICyY?autoplay=1&amp;mute=1&amp;loop=1&amp;playlist=1EEIcyKICyY&amp;controls=0&amp;modestbranding=1&amp;playsinline=1&amp;rel=0&amp;disablekb=1" title="Coco Place ikinci fragman arka plan videosu" allow="autoplay; encrypted-media" tabindex="-1" loading="eager"></iframe>
+      </div>
+      <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-inner">
-        <div class="eyebrow"><span class="pulse-dot"></span><span data-tr="İSTANBUL MERKEZLİ BAĞIMSIZ OYUN STÜDYOSU" data-en="INDEPENDENT GAME STUDIO · ISTANBUL">İSTANBUL MERKEZLİ BAĞIMSIZ OYUN STÜDYOSU</span></div>
-        <h1 id="hero-title"><span data-tr="Kaybolmaya" data-en="Worlds worth">Kaybolmaya</span><br><em data-tr="değer dünyalar." data-en="getting lost in.">değer dünyalar.</em></h1>
+        <div class="hero-center"><img class="hero-logo" src="assets/img/logo.png" alt="RushDev Studios" width="240" height="240" fetchpriority="high"><h1 id="hero-title" class="visually-hidden">RushDev Studios</h1></div>
         <div class="hero-bottom">
-          <div class="hero-story">
-            <p data-tr="Bağımsız oyunlar. Kendi kurallarımızla. Coco Place’in karanlık dünyasına adım at." data-en="Independent games. Our own rules. Step into the dark world of Coco Place.">Bağımsız oyunlar. Kendi kurallarımızla. Coco Place’in karanlık dünyasına adım at.</p>
-            <div class="hero-actions">
-              <a class="button button-primary magnetic" href="https://www.youtube.com/watch?v=1EEIcyKICyY" target="_blank" rel="noreferrer"><span data-tr="2. fragmanı izle" data-en="Watch trailer 02">2. fragmanı izle</span><span aria-hidden="true">↗</span></a>
-              <a class="button button-quiet" href="#trailers"><span data-tr="Fragmanları keşfet" data-en="Explore trailers">Fragmanları keşfet</span><span aria-hidden="true">↓</span></a>
-            </div>
+          <div class="hero-project"><p class="hero-kicker" data-tr="YENİ FRAGMAN YAYINDA" data-en="NEW TRAILER OUT NOW">YENİ FRAGMAN YAYINDA</p><p class="hero-game-title">COCO PLACE</p></div>
+          <div class="hero-actions">
+            <a class="button button-primary magnetic" href="https://www.youtube.com/watch?v=1EEIcyKICyY" target="_blank" rel="noreferrer"><span data-tr="Fragmanı izle" data-en="Watch trailer">Fragmanı izle</span><span aria-hidden="true">↗</span></a>
+            <a class="button button-quiet" href="#games"><span data-tr="Oyunlarımız" data-en="Our games">Oyunlarımız</span><span aria-hidden="true">↓</span></a>
           </div>
-          <div class="hero-status"><span class="status-ring"><span></span></span><div><small data-tr="ŞİMDİ ODAKTA" data-en="NOW IN FOCUS">ŞİMDİ ODAKTA</small><strong>COCO PLACE</strong><span data-tr="Atmosferik gerilim · Demo kapalı" data-en="Atmospheric thriller · Demo unavailable">Atmosferik gerilim · Demo kapalı</span></div></div>
         </div>
       </div>
-      <div class="hero-foot"><span>R / 001</span><span class="hero-foot-line"></span><span data-tr="KARANLIĞA BİR ADIM DAHA" data-en="ONE STEP FURTHER INTO THE DARK">KARANLIĞA BİR ADIM DAHA</span></div>
-      <a class="scroll-cue" href="#marquee" aria-label="Aşağı kaydır"><span></span></a>
     </section>
 
     <section class="marquee-section" id="marquee" aria-label="RushDev Studios">

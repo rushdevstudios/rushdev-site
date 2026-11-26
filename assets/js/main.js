@@ -84,7 +84,6 @@
 
   let previousY = window.scrollY;
   let scrollQueued = false;
-  const progress = document.querySelector('#scroll-progress');
   const updateOnScroll = () => {
     const y = window.scrollY;
     header?.classList.toggle('scrolled', y > 24);
@@ -95,8 +94,6 @@
     }
     previousY = y;
 
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    if (progress) progress.style.transform = `scaleX(${max > 0 ? y / max : 0})`;
     scrollQueued = false;
   };
   window.addEventListener('scroll', () => {
@@ -133,14 +130,6 @@
     revealItems.forEach((item) => item.classList.add('is-visible'));
   }
 
-  document.querySelectorAll('.spotlight').forEach((item) => {
-    item.addEventListener('pointermove', (event) => {
-      const rect = item.getBoundingClientRect();
-      item.style.setProperty('--mx', `${event.clientX - rect.left}px`);
-      item.style.setProperty('--my', `${event.clientY - rect.top}px`);
-    });
-  });
-
   if (!reduceMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     document.querySelectorAll('.tilt-card').forEach((card) => {
       card.addEventListener('pointermove', (event) => {
@@ -153,21 +142,6 @@
       });
       card.addEventListener('pointerleave', () => card.classList.remove('is-tilting'));
     });
-
-    const cursor = document.querySelector('#custom-cursor');
-    if (cursor) {
-      root.classList.add('has-custom-cursor');
-      window.addEventListener('pointermove', (event) => {
-        cursor.style.left = `${event.clientX}px`;
-        cursor.style.top = `${event.clientY}px`;
-        cursor.classList.add('is-visible');
-      }, { passive: true });
-      document.querySelectorAll('a, button').forEach((item) => {
-        item.addEventListener('pointerenter', () => cursor.classList.add('is-hover'));
-        item.addEventListener('pointerleave', () => cursor.classList.remove('is-hover'));
-      });
-      document.addEventListener('pointerleave', () => cursor.classList.remove('is-visible'));
-    }
 
     document.querySelectorAll('.magnetic').forEach((item) => {
       item.addEventListener('pointermove', (event) => {
@@ -182,17 +156,6 @@
     });
   }
 
-  document.querySelectorAll('.hero').forEach((hero) => {
-    hero.addEventListener('pointermove', (event) => {
-      if (event.pointerType !== 'mouse') return;
-      const rect = hero.getBoundingClientRect();
-      hero.style.setProperty('--light-x', `${((event.clientX - rect.left) / rect.width) * 100}%`);
-      hero.style.setProperty('--light-y', `${((event.clientY - rect.top) / rect.height) * 100}%`);
-    }, { passive: true });
-  });
-
-  const intro = document.querySelector('.site-intro');
-  window.setTimeout(() => intro?.classList.add('is-done'), reduceMotion ? 0 : 1050);
   const year = document.querySelector('#year');
   if (year) year.textContent = String(new Date().getFullYear());
 })();
